@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cq6db428tuof0"]
+[gd_scene load_steps=8 format=3 uid="uid://cq6db428tuof0"]
 
 [ext_resource type="Texture2D" uid="uid://cn7i470mtg17t" path="res://assets/characters/player/little boxes placeholder assets/body_template.png" id="1_ogtsv"]
 
@@ -76,9 +76,14 @@ _data = {
 "running": SubResource("Animation_v4lcm")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k2u0m"]
+radius = 5.0
+height = 16.0
+
 [node name="Player" type="CharacterBody2D"]
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
+position = Vector2(1, -24)
 texture = ExtResource("1_ogtsv")
 hframes = 12
 vframes = 5
@@ -88,3 +93,6 @@ frame = 37
 libraries = {
 "": SubResource("AnimationLibrary_tyiso")
 }
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_k2u0m")
