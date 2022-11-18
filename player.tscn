@@ -1,21 +1,88 @@
-[gd_scene load_steps=4 format=3 uid="uid://cq6db428tuof0"]
+[gd_scene load_steps=7 format=3 uid="uid://cq6db428tuof0"]
 
 [ext_resource type="Texture2D" uid="uid://cn7i470mtg17t" path="res://assets/characters/player/little boxes placeholder assets/body_template.png" id="1_ogtsv"]
 
 [sub_resource type="Animation" id="Animation_647pl"]
 resource_name = "idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2d:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.1, 0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [37, 38, 39, 40, 41]
+}
+
+[sub_resource type="Animation" id="Animation_w6w2p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2d:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [37]
+}
+
+[sub_resource type="Animation" id="Animation_v4lcm"]
+resource_name = "running"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2d:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27, 28, 29, 30, 31]
+}
+
+[sub_resource type="Animation" id="Animation_t7dom"]
+resource_name = "jumping"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2d:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [51, 52, 53, 54, 55, 56, 57, 58, 59]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tyiso"]
 _data = {
-"idle": SubResource("Animation_647pl")
+"RESET": SubResource("Animation_w6w2p"),
+"idle": SubResource("Animation_647pl"),
+"jumping": SubResource("Animation_t7dom"),
+"running": SubResource("Animation_v4lcm")
 }
 
 [node name="Player" type="CharacterBody2D"]
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
 texture = ExtResource("1_ogtsv")
-hframes = 13
-vframes = 3
+hframes = 12
+vframes = 5
+frame = 37
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
