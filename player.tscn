@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cq6db428tuof0"]
+
+[ext_resource type="Texture2D" uid="uid://cn7i470mtg17t" path="res://assets/characters/player/little boxes placeholder assets/body_template.png" id="1_ogtsv"]
+
+[sub_resource type="Animation" id="Animation_647pl"]
+resource_name = "idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tyiso"]
+_data = {
+"idle": SubResource("Animation_647pl")
+}
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+texture = ExtResource("1_ogtsv")
+hframes = 13
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tyiso")
+}
